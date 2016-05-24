@@ -12,6 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import br.com.java.rest.entidade.Biblioteca;
+import br.com.java.rest.execption.RestExecption;
 import br.com.java.rest.repositorio.BibliotecaRepositorio;
 
 @Path("/bibliotecas")
@@ -33,24 +34,26 @@ public class BibliotecaServico {
 	@Produces({ MediaType.APPLICATION_JSON })
 	@Consumes({ MediaType.APPLICATION_JSON })
 	public Biblioteca buscarPorId(@PathParam("id") long id) {
-		return bibliotecaRepositorio.buscarPorId(id);
+		Biblioteca biblioteca = bibliotecaRepositorio.buscarPorId(id);
+		return isBibliotecaValida(biblioteca);
+
 	}
-	
+
 	@POST
 	@Path("/{nome}")
 	@Produces({ MediaType.APPLICATION_JSON })
 	@Consumes({ MediaType.APPLICATION_JSON })
 	public Biblioteca buscarNome(@PathParam("nome") String nome) {
-		return bibliotecaRepositorio.buscarPorNome(nome);
+		Biblioteca biblioteca = bibliotecaRepositorio.buscarPorNome(nome);
+		return isBibliotecaValida(biblioteca);
 	}
-	
-	// @PUT
-	// @Path("/book/{isbn}")
-	// public void addBook(@PathParam("isbn") String id, @QueryParam("name")
-	// String name) {...}
-	//
-	// @DELETE
-	// @Path("/book/{id}")
-	// public void removeBook(@PathParam("id") String id {...}
+
+	private Biblioteca isBibliotecaValida(Biblioteca biblioteca) {
+		if (biblioteca.getId() != null) {
+			return biblioteca;
+		} else {
+			throw new RestExecption("Biblioteca não encontrada");
+		}
+	}
 
 }

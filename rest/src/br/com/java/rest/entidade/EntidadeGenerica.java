@@ -2,19 +2,19 @@ package br.com.java.rest.entidade;
 
 public class EntidadeGenerica {
 
-	private long id;
+	private Long id;
 	private String nome;
 
 	public EntidadeGenerica() {
 		super();
 	}
 
-	public EntidadeGenerica(long id, String nome) {
+	public EntidadeGenerica(Long id, String nome) {
 		this.id = id;
 		this.nome = nome;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -22,7 +22,7 @@ public class EntidadeGenerica {
 		return nome;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
