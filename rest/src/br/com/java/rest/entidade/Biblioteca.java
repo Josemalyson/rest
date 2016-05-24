@@ -4,21 +4,21 @@ import java.util.List;
 
 public class Biblioteca extends EntidadeGenerica {
 
-	private List<Livros> livrosList;
+	private List<Livro> livrosList;
 
 	public Biblioteca() {
 		super();
 	}
 
-	public Biblioteca(List<Livros> livrosList) {
+	public Biblioteca(List<Livro> livrosList) {
 		this.livrosList = livrosList;
 	}
 
-	public List<Livros> getLivrosList() {
+	public List<Livro> getLivrosList() {
 		return livrosList;
 	}
 
-	public void setLivrosList(List<Livros> livrosList) {
+	public void setLivrosList(List<Livro> livrosList) {
 		this.livrosList = livrosList;
 	}
 

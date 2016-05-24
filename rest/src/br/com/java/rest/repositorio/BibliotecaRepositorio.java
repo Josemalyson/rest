@@ -7,6 +7,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 
 import br.com.java.rest.entidade.Biblioteca;
+import br.com.java.rest.entidade.Livro;
 
 @Stateless
 public class BibliotecaRepositorio {
@@ -20,6 +21,11 @@ public class BibliotecaRepositorio {
 		Biblioteca biblioteca = new Biblioteca();
 		biblioteca.setId(1L);
 		biblioteca.setNome("Biblioteca Geral de Santa Rita - PB");
+
+		Livro livro = new Livro();
+		livro.setId(1L);
+		livro.setNome("A HORA DA ESTRELA");
+		biblioteca.setLivrosList(Arrays.asList(livro));
 
 		Biblioteca biblioteca2 = new Biblioteca();
 		biblioteca2.setId(2L);
@@ -37,4 +43,12 @@ public class BibliotecaRepositorio {
 	public Biblioteca buscarPorId(long id) {
 		return listar().stream().filter(b -> b.getId() == id).findAny().orElse(new Biblioteca());
 	}
+
+	public Biblioteca buscarPorNome(String nome) {
+		return listar().stream()
+				.filter(b -> b.getNome().trim().toUpperCase().replaceAll("\\s+", "")
+						.equalsIgnoreCase(nome.trim().toUpperCase().replaceAll("\\s+", "")))
+				.findAny().orElse(new Biblioteca());
+	}
+
 }

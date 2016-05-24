@@ -2,18 +2,18 @@ package br.com.java.rest.entidade;
 
 import java.util.List;
 
-public class Livros extends EntidadeGenerica {
+public class Livro extends EntidadeGenerica {
 
 	private Editora editora;
 	private List<Autor> autorList;
 	private int quantidadeDePaginas;
 	private Categoria categoria;
 
-	public Livros() {
+	public Livro() {
 		super();
 	}
 
-	public Livros(Editora editora, List<Autor> autorList, int quantidadeDePaginas, Categoria categoria) {
+	public Livro(Editora editora, List<Autor> autorList, int quantidadeDePaginas, Categoria categoria) {
 		super();
 		this.editora = editora;
 		this.autorList = autorList;
