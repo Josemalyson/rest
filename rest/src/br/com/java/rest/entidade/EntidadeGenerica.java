@@ -1,7 +1,11 @@
 package br.com.java.rest.entidade;
 
-public class EntidadeGenerica {
+import java.io.Serializable;
 
+public class EntidadeGenerica implements Serializable {
+
+	private static final long serialVersionUID = 8139418347070247235L;
+	
 	private Long id;
 	private String nome;
 

@@ -3,6 +3,6 @@ package br.com.java.rest.repositorio;
 import javax.ejb.Stateless;
 
 @Stateless
-public class BibliotecaRepositorio {
+public class EditoraRepositorio {
 
 }
