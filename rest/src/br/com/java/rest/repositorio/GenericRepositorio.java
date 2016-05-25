@@ -4,16 +4,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 import br.com.java.rest.entidade.EntidadeGenerica;
 
 @Stateless
 public class GenericRepositorio {
 
-	@PersistenceContext
-	private EntityManager entityManager;
+//	@PersistenceContext
+//	private EntityManager entityManager;
 
 	public Collection<? extends EntidadeGenerica> listar() {
 		return new ArrayList<>();
@@ -30,12 +28,12 @@ public class GenericRepositorio {
 				.findAny().orElse(null);
 	}
 
-	public EntityManager getEntityManager() {
-		return entityManager;
-	}
-
-	public void setEntityManager(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
+//	public EntityManager getEntityManager() {
+//		return entityManager;
+//	}
+//
+//	public void setEntityManager(EntityManager entityManager) {
+//		this.entityManager = entityManager;
+//	}
 
 }
